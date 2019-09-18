@@ -1,0 +1,44 @@
+<div class="width-limit-container">
+  <div class="search-input">
+    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
+      <input type="text" nz-input [(ngModel)]="keyWords" placeholder="请输入你要搜索的关键词..." />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch nzSize="large">
+        <i nz-icon nzType="search"></i>
+      </button>
+    </ng-template>
+  </div>
+</div>
+
+
+<div class="search-result-nav">
+  <div class="width-limit-container">
+    <span class="search-result-nav-item">全部</span>
+    <span class="search-result-nav-item">代码</span>
+    <span class="search-result-nav-item">文件</span>
+    <span class="search-result-nav-item">用户</span>
+  </div>
+</div>
+
+
+<div class="width-limit-container search-result">
+  <div class="search-result-desc">为您找到相关结果约 {{resultCount}} 个</div>
+
+  <div class="search-result-item">
+    <h2>
+      <a class="title" target="_blank" href="#">前端防抖与节流</a>
+    </h2>
+    <p class="desc">xD;AI 前线导读：借贷信息中介平台麻袋财富现在已成为行业头部平台，庞大的业务量带来了数据量指数级增长，...</p>
+    <div class="info">
+      <i>来源：InfoQ网站</i>
+      <i>发布日期：2018-10-20</i>
+      <i>作者：<span>麻袋财富大数据平台部门</span></i>
+      <i>翻译：<span>麻袋财富大数据平台部门,</span></i>
+    </div>
+    <div class="info topic"><i>话题：语言 &amp; 开发，架构</i></div>
+  </div>
+</div>
+
+
+

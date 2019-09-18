@@ -1,0 +1,28 @@
+.header {
+  padding: 0 15px;
+  height: 70px;
+  line-height: 70px;
+  background-color: #fff;
+}
+
+.header .nav {
+  float: right;
+}
+
+.header .nav-item {
+  margin: 0 20px;
+  color: #000;
+}
+
+.header .nav-item:last-child {
+  margin-right: 0;
+}
+
+.header .nav-item:hover {
+  color: #1890ff;
+}
+
+.header .nav-item.active {
+  color: #1890ff;
+}
+

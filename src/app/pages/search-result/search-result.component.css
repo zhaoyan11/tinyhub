@@ -1,0 +1,36 @@
+.width-limit-container {
+  margin: 25px auto 15px auto;
+  width: 1280px;
+  max-width: 95%;
+}
+
+
+.search-input {
+  width: 600px;
+  max-width: 90%;
+}
+
+
+.search-result-nav {
+  margin: 15px 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+
+.search-result-nav-item {
+  display: inline-block;
+  margin-right: 30px;
+  padding: 6px 0;
+}
+
+.search-result-item {
+
+}
+
+
+.search-result-nav-item.active {
+  border-bottom: 1px solid #ff5a05;
+}
+
+
