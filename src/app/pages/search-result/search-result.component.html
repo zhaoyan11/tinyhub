@@ -1,42 +1,79 @@
 <div class="width-limit-container">
   <div class="search-input">
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
-      <input type="text" nz-input [(ngModel)]="keyWords" placeholder="请输入你要搜索的关键词..." />
+      <input type="text" nz-input [(ngModel)]="queryParams.keyWords" placeholder="请输入你要搜索的关键词..." />
     </nz-input-group>
     <ng-template #suffixIconButton>
-      <button nz-button nzType="primary" nzSearch nzSize="large">
+      <button nz-button nzType="primary" nzSearch nzSize="large" (click)="search()">
         <i nz-icon nzType="search"></i>
       </button>
     </ng-template>
   </div>
+
+  <span style="float: right">
+    <button type="button" nzType="link" nz-button>发布代码</button>
+    <button type="button" nzType="link" nz-button>上传文件</button>
+    <button type="button" nzType="link" nz-button>登录</button>
+  </span>
 </div>
 
 
 <div class="search-result-nav">
   <div class="width-limit-container">
-    <span class="search-result-nav-item">全部</span>
-    <span class="search-result-nav-item">代码</span>
-    <span class="search-result-nav-item">文件</span>
-    <span class="search-result-nav-item">用户</span>
+    <span class="search-result-nav-item"
+          *ngFor="let type of ResultType"
+          [ngClass]="{'active': queryParams.type === type.symbol}"
+          (click)="search({type: type.symbol})">
+      {{type.label}}
+    </span>
   </div>
 </div>
 
 
 <div class="width-limit-container search-result">
-  <div class="search-result-desc">为您找到相关结果约 {{resultCount}} 个</div>
+  <div class="result-summary">为您找到相关结果约 {{resultCount}} 个</div>
 
-  <div class="search-result-item">
-    <h2>
-      <a class="title" target="_blank" href="#">前端防抖与节流</a>
-    </h2>
-    <p class="desc">xD;AI 前线导读：借贷信息中介平台麻袋财富现在已成为行业头部平台，庞大的业务量带来了数据量指数级增长，...</p>
-    <div class="info">
-      <i>来源：InfoQ网站</i>
-      <i>发布日期：2018-10-20</i>
-      <i>作者：<span>麻袋财富大数据平台部门</span></i>
-      <i>翻译：<span>麻袋财富大数据平台部门,</span></i>
+  <div class="result-item result-item-code">
+    <div class="overview">
+      <nz-avatar nzText="孔"></nz-avatar>
+      <span class="overview-author">孔夫子的妾</span> /
+      <span class="overview-title">防抖与<span style="color: #ff5a05">节流</span></span>
     </div>
-    <div class="info topic"><i>话题：语言 &amp; 开发，架构</i></div>
+
+    <div class="detail">
+      <span class="detail-date">最后更新：2019-9-23</span>
+      <span class="tag detail-tag">JavaScript</span>
+      <span class="tag detail-tag">节流</span>
+    </div>
+  </div>
+
+
+  <div class="result-item result-item-file">
+    <div class="overview">
+      <nz-avatar nzText="太"></nz-avatar>
+      <span class="overview-author">太平洋一条鱼</span> /
+      <span class="overview-title">jquery-validate.js</span>
+    </div>
+
+    <div class="detail">
+      <span class="detail-date">上传时间：2019-9-23</span>
+      <span class="tag detail-tag">JavaScript</span>
+      <span class="tag detail-tag">jquery插件</span>
+    </div>
+  </div>
+
+
+  <div class="result-item result-item-user">
+    <div class="overview">
+      <nz-avatar nzText="太"></nz-avatar>
+      <span class="overview-author">太平洋一条鱼</span>
+    </div>
+
+    <div class="detail">
+      <span class="detail-date">贡献度：23</span>
+      <span class="detail-code-list">他/她的代码：8</span>
+      <span class="detail-file-list">他/她的文件：15</span>
+    </div>
   </div>
 </div>
 

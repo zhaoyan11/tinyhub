@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-size: 14px;
+}
+
+.width-limit-container {
+  margin: 25px auto 15px auto;
+  width: 1280px;
+  max-width: 95%;
+}

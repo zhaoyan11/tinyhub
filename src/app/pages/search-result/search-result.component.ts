@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ResultType } from '../../shared/constants';
 
 @Component({
   selector: 'app-search-result',
@@ -7,17 +8,34 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
-  public keyWords: string;
+  public ResultType = ResultType;
+  public queryParams: any = { type: this.ResultType[0].symbol, page: 1, keyWords: '' };
   public resultCount = 0;
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams
       .subscribe(
       queryParams => {
-        this.keyWords = queryParams.keyWords || '';
+        console.log(queryParams);
       }
     );
   }
 
+
+  search(params): void {
+    Object.assign(this.queryParams, params);
+    this.router.navigate(['search'], {queryParams: this.queryParams});
+  }
+
+  addCode(): void {
+
+  }
+
+  addFile(): void {
+
+  }
 }

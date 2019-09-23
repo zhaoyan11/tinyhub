@@ -1,18 +1,12 @@
-.width-limit-container {
-  margin: 25px auto 15px auto;
-  width: 1280px;
-  max-width: 95%;
-}
-
-
 .search-input {
+  display: inline-block;
   width: 600px;
   max-width: 90%;
 }
 
 
 .search-result-nav {
-  margin: 15px 0;
+  margin: 15px 0 10px 0;
   padding: 0;
   background-color: #f5f5f5;
 }
@@ -22,10 +16,7 @@
   display: inline-block;
   margin-right: 30px;
   padding: 6px 0;
-}
-
-.search-result-item {
-
+  cursor: pointer;
 }
 
 
@@ -34,3 +25,61 @@
 }
 
 
+.result-summary {
+  margin: -15px 0 25px 0;
+}
+
+
+.result-item {
+  margin: 20px 0;
+}
+
+
+.result-item .overview {
+  margin: 10px 0 5px 0;
+  font-size: 20px;
+  color: #1075d4;
+}
+
+
+.overview nz-avatar {
+  margin-right: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+
+.overview-author,
+.overview-title {
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+
+.overview-author:hover,
+.overview-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.result-item .tag {
+  margin: 0 4px 0 8px;
+  border-radius: 2px;
+  padding: 0 5px;
+  color: #6a6a6a;
+  background-color: #efefef;
+}
+
+
+.detail-code-list,
+.detail-file-list {
+  margin: 0 10px;
+  color: #1075d4;
+}
+
+
+.detail-code-list:hover,
+.detail-file-list:hover {
+  text-decoration: underline;
+}
