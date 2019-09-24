@@ -26,7 +26,7 @@ export class SearchResultComponent implements OnInit {
   }
 
 
-  search(params): void {
+  search(params?): void {
     Object.assign(this.queryParams, params);
     this.router.navigate(['search'], {queryParams: this.queryParams});
   }

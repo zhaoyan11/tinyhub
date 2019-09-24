@@ -1,4 +1,4 @@
-<div class="width-limit-container">
+<div class="width-limit clearfix" style="margin-top: 25px;margin-bottom: 15px;">
   <div class="search-input">
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
       <input type="text" nz-input [(ngModel)]="queryParams.keyWords" placeholder="请输入你要搜索的关键词..." />
@@ -10,16 +10,16 @@
     </ng-template>
   </div>
 
-  <span style="float: right">
-    <button type="button" nzType="link" nz-button>发布代码</button>
-    <button type="button" nzType="link" nz-button>上传文件</button>
+  <span class="operations">
+    <button type="button" nzType="link" nz-button routerLink="/code/add">发布代码</button>
+    <button type="button" nzType="link" nz-button routerLink="/file/add">上传文件</button>
     <button type="button" nzType="link" nz-button>登录</button>
   </span>
 </div>
 
 
 <div class="search-result-nav">
-  <div class="width-limit-container">
+  <div class="width-limit">
     <span class="search-result-nav-item"
           *ngFor="let type of ResultType"
           [ngClass]="{'active': queryParams.type === type.symbol}"
@@ -30,14 +30,14 @@
 </div>
 
 
-<div class="width-limit-container search-result">
+<div class="width-limit search-result">
   <div class="result-summary">为您找到相关结果约 {{resultCount}} 个</div>
 
   <div class="result-item result-item-code">
     <div class="overview">
       <nz-avatar nzText="孔"></nz-avatar>
       <span class="overview-author">孔夫子的妾</span> /
-      <span class="overview-title">防抖与<span style="color: #ff5a05">节流</span></span>
+      <span class="overview-title" routerLink="/code/1">防抖与<span style="color: #ff5a05">节流</span></span>
     </div>
 
     <div class="detail">

@@ -3,8 +3,14 @@ body {
   font-size: 14px;
 }
 
-.width-limit-container {
-  margin: 25px auto 15px auto;
+.width-limit {
+  margin: 0 auto;
   width: 1280px;
+  max-width: 95%;
+}
+
+.mini-width-limit {
+  margin: 0 auto;
+  width: 920px;
   max-width: 95%;
 }
