@@ -1,0 +1,59 @@
+<div class="mini-width-limit" style="margin-top: 25px;margin-bottom: 15px">
+  <div class="title">
+    <a routerLink="/search" style="float: left">返回</a>
+    上传文件
+  </div>
+
+  <form nz-form>
+    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">文件简介</nz-form-label>
+      <nz-form-control [nzSpan]="21">
+        <input nz-input name="summary" id="summary" type="text">
+      </nz-form-control>
+    </nz-form-item >
+
+
+    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <nz-form-label [nzSpan]="3" nzFor="" nzRequired style="text-align: left;">标签</nz-form-label>
+      <nz-form-control [nzSpan]="21">
+        <app-editable-tag></app-editable-tag>
+      </nz-form-control>
+    </nz-form-item >
+
+
+    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">文件公开</nz-form-label>
+      <nz-form-control [nzSpan]="21">
+        <nz-switch nzCheckedChildren="已公开" nzUnCheckedChildren="未公开"></nz-switch>
+      </nz-form-control>
+    </nz-form-item>
+
+
+    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">文件</nz-form-label>
+      <nz-form-control [nzSpan]="21">
+        <nz-upload
+          nzType="drag"
+          [nzMultiple]="true"
+          [nzLimit]="2"
+          [nzBeforeUpload]="beforeUpload"
+          nzAction="https://jsonplaceholder.typicode.com/posts/">
+
+          <p class="ant-upload-drag-icon">
+            <i nz-icon nzType="inbox"></i>
+          </p>
+          <p class="ant-upload-text">Click or drag file to this area to upload</p>
+          <p class="ant-upload-hint">
+            Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
+          </p>
+        </nz-upload>
+      </nz-form-control>
+    </nz-form-item >
+
+    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <nz-form-control [nzOffset]="3">
+        <button type="button" nz-button nzType="primary">确认上传</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
