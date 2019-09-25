@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { EditableTagComponent } from './editable-tag/editable-tag.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
+import { HighlightComponent } from './highlight/highlight.component';
 
 
 @NgModule({
   declarations: [
-    EditableTagComponent
+    EditableTagComponent,
+    HighlightComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { FormsModule } from '@angular/forms';
   exports: [
     FormsModule,
     NgZorroAntdModule,
-    EditableTagComponent
+    EditableTagComponent,
+    HighlightComponent
   ]
 })
 

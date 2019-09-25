@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { distanceInWords } from 'date-fns';
 
 @Component({
-  selector: 'app-code-detail',
-  templateUrl: './code-detail.component.html',
-  styleUrls: ['./code-detail.component.css']
+  selector: 'app-file-detail',
+  templateUrl: './file-detail.component.html',
+  styleUrls: ['./file-detail.component.css']
 })
-export class CodeDetailComponent implements OnInit {
+export class FileDetailComponent implements OnInit {
   data: Array<any> = [
     {author: '曾参', displayTime: new Date(), avatar: '曾', content: '还是师娘疼我啊'}
   ];
@@ -42,5 +42,6 @@ export class CodeDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

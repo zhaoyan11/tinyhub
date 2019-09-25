@@ -5,9 +5,11 @@
 }
 
 .code-info {
-  margin: 15px;
+  margin: 15px 30px 15px 0;
 }
 
 .title {
+  margin: 15px 0 10px;
   font-size: 18px;
 }
+

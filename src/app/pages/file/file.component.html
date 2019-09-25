@@ -1,6 +1,8 @@
 <div class="mini-width-limit" style="margin-top: 25px;margin-bottom: 15px">
   <div class="title">
-    <a routerLink="/search" style="float: left">返回</a>
+    <a routerLink="/search" style="float: left">
+      <i nz-icon nzType="arrow-left" nzTheme="outline"></i>
+    </a>
     上传文件
   </div>
 
@@ -12,6 +14,13 @@
       </nz-form-control>
     </nz-form-item >
 
+
+    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+      <nz-form-label [nzSpan]="3" nzFor="email" style="text-align: left;">文件版本</nz-form-label>
+      <nz-form-control [nzSpan]="21">
+        <input nz-input type="text">
+      </nz-form-control>
+    </nz-form-item >
 
     <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
       <nz-form-label [nzSpan]="3" nzFor="" nzRequired style="text-align: left;">标签</nz-form-label>
