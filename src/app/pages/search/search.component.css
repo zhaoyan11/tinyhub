@@ -1,12 +1,10 @@
 .search-input {
-  float: left;
   width: 600px;
   max-width: 90%;
 }
 
-
-.operations {
-  float: right;
+.operation-link {
+  padding: 0 10px;
 }
 
 

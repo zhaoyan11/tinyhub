@@ -1,0 +1,22 @@
+.login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 350px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 35px 25px 10px 25px;
+  box-shadow: 0 0 5px 1px rgba(7,17,27,.1);
+}
+
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+

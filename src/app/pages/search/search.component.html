@@ -1,5 +1,11 @@
-<div class="width-limit clearfix" style="margin-top: 25px;margin-bottom: 15px;">
-  <div class="search-input">
+<div class="width-limit"
+     nz-row
+     nzType="flex"
+     nzJustify="space-between"
+     nzAlign="middle"
+     style="margin-top: 25px;margin-bottom: 15px;">
+
+  <div class="search-input" nz-col>
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
       <input type="text" nz-input [(ngModel)]="queryParams.keyWords" placeholder="请输入你要搜索的关键词..." />
     </nz-input-group>
@@ -10,10 +16,10 @@
     </ng-template>
   </div>
 
-  <span class="operations">
-    <button type="button" nzType="link" nz-button routerLink="/code/add">发布代码</button>
-    <button type="button" nzType="link" nz-button routerLink="/file/add">上传文件</button>
-    <button type="button" nzType="link" nz-button>登录</button>
+  <span class="operations" nz-col>
+    <a class="operation-link" routerLink="/code/add">代码笔记</a>
+    <a class="operation-link" routerLink="/file/add">共享文件上传</a>
+    <a class="operation-link" routerLink="/login">登录</a>
   </span>
 </div>
 
@@ -76,6 +82,5 @@
     </div>
   </div>
 </div>
-
 
 

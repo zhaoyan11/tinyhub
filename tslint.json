@@ -53,6 +53,7 @@
       "trace"
     ],
     "no-empty": false,
+    "forin": false,
     "no-inferrable-types": [
       true,
       "ignore-params"
