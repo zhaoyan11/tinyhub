@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search.component';
-import { FormsModule } from '@angular/forms';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SearchRoutingModule } from './search-routing.module';
+import { ResultItemComponent } from './result-item/result-item.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [SearchComponent, ResultItemComponent],
   imports: [
     CommonModule,
-    SearchRoutingModule,
-    FormsModule,
-    NgZorroAntdModule
+    SharedModule,
+    SearchRoutingModule
   ]
 })
 export class SearchModule { }

@@ -9,15 +9,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class EditableTagComponent implements OnInit {
   public tags: Array<{label: string, color: string}> = [];
   public tagLimit = 5;
-  public colors: string[] = ['magenta', 'red', 'volcano', 'orange', 'gold', 'lime', 'green', 'cyan', 'blue', 'geekblue', 'purple'];
+  public colors: string[];
   public inputVisible = false;
   public inputValue: string;
   @ViewChild('inputElement', { static: false }) inputElement: ElementRef;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor() {}
 
   showInput() {
     this.inputVisible = true;
@@ -27,12 +24,43 @@ export class EditableTagComponent implements OnInit {
   }
 
   handleInputConfirm() {
-    if (this.inputValue) {
+    if (this.validate()) {
       const color = this.colors[Math.floor(Math.random() * this.colors.length)];
       this.tags.push({label: this.inputValue, color});
     }
 
     this.inputVisible = false;
     this.inputValue = '';
+  }
+
+  validate(): boolean {
+    const isDuplicate = this.tags.some( (value) => {
+      return value.label === this.inputValue;
+    });
+
+    return Boolean(this.inputValue && !isDuplicate) ;
+  }
+
+  tagClosedHandle(tag) {
+    const TagIndex = this.tags.findIndex( value => {
+      return value.label === tag.label;
+    });
+    this.tags.splice(TagIndex, 1);
+  }
+
+  ngOnInit(): void {
+    this.colors = [
+      'magenta',
+      'red',
+      'volcano',
+      'orange',
+      'gold',
+      'lime',
+      'green',
+      'cyan',
+      'blue',
+      'geekblue',
+      'purple'
+    ];
   }
 }

@@ -1,5 +1,11 @@
 <ng-container>
-  <nz-tag *ngFor="let tag of tags" nzMode="closeable" [nzColor]="tag.color">{{tag.label}}</nz-tag>
+  <nz-tag
+    *ngFor="let tag of tags"
+    nzMode="closeable"
+    [nzColor]="tag.color"
+    (nzAfterClose)="tagClosedHandle(tag)"
+  >{{tag.label}}
+  </nz-tag>
 
   <input
     #inputElement
@@ -14,10 +20,11 @@
     style="width: 80px;"
   />
 
-  <nz-tag class="editable-tag"
-          *ngIf="!inputVisible && tags.length < tagLimit"
-          nzNoAnimation
-          (click)="showInput()">新建+
+  <nz-tag
+    class="editable-tag"
+    *ngIf="!inputVisible && tags.length < tagLimit"
+    nzNoAnimation
+    (click)="showInput()">新建+
   </nz-tag>
 
 </ng-container>

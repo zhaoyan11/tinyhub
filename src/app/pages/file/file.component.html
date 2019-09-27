@@ -7,7 +7,7 @@
   </div>
 
   <form nz-form>
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">文件简介</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <input nz-input name="summary" id="summary" type="text">
@@ -15,14 +15,14 @@
     </nz-form-item >
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="email" style="text-align: left;">文件版本</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <input nz-input type="text">
       </nz-form-control>
     </nz-form-item >
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="" nzRequired style="text-align: left;">标签</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <app-editable-tag></app-editable-tag>
@@ -30,15 +30,20 @@
     </nz-form-item >
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">文件公开</nz-form-label>
       <nz-form-control [nzSpan]="21">
-        <nz-switch nzCheckedChildren="已公开" nzUnCheckedChildren="未公开"></nz-switch>
+        <nz-switch
+          [(ngModel)]="pubState"
+          name="pubState"
+          nzCheckedChildren="已公开"
+          nzUnCheckedChildren="未公开">
+        </nz-switch>
       </nz-form-control>
     </nz-form-item>
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">文件</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <nz-upload
@@ -59,7 +64,7 @@
       </nz-form-control>
     </nz-form-item >
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-control [nzOffset]="3">
         <button type="button" nz-button nzType="primary">确认上传</button>
       </nz-form-control>

@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditableTagComponent } from './editable-tag/editable-tag.component';
+import { EditableTagComponent } from './components/editable-tag/editable-tag.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { BgColorRandomDirective } from './derevtives/bg-color-random.directive';
+import { SearchResultTypePipe } from './pipes/search-result-type.pipe';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HighlightComponent } from './highlight/highlight.component';
 
 
 @NgModule({
   declarations: [
     EditableTagComponent,
-    HighlightComponent
+    HighlightComponent,
+    BgColorRandomDirective,
+    SearchResultTypePipe
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { HighlightComponent } from './highlight/highlight.component';
     ReactiveFormsModule,
     NgZorroAntdModule,
     EditableTagComponent,
-    HighlightComponent
+    HighlightComponent,
+    SearchResultTypePipe,
+    BgColorRandomDirective
   ]
 })
 

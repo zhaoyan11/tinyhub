@@ -7,7 +7,9 @@ import { UploadFile } from 'ng-zorro-antd';
   styleUrls: ['./file.component.css']
 })
 export class FileComponent implements OnInit {
-  fileList: UploadFile[] = [];
+  public pubState = false;
+  public nzGutterConfig: any = { xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 };
+  public fileList: UploadFile[] = [];
   constructor() { }
 
   ngOnInit() {

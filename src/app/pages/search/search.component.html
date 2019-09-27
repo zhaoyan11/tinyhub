@@ -7,7 +7,13 @@
 
   <div class="search-input" nz-col>
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
-      <input type="text" nz-input [(ngModel)]="queryParams.keyWords" placeholder="请输入你要搜索的关键词..." />
+      <input
+        type="text"
+        nz-input
+        [(ngModel)]="queryParams.keyWords"
+        (keydown.enter)="search()"
+        placeholder="请输入你要搜索的关键词..."
+      />
     </nz-input-group>
     <ng-template #suffixIconButton>
       <button nz-button nzType="primary" nzSearch nzSize="large" (click)="search()">
@@ -35,52 +41,10 @@
   </div>
 </div>
 
-
 <div class="width-limit search-result">
   <div class="result-summary">为您找到相关结果约 {{resultCount}} 个</div>
-
-  <div class="result-item result-item-code">
-    <div class="overview">
-      <nz-avatar nzText="孔"></nz-avatar>
-      <span class="overview-author">孔夫子的妾</span> /
-      <span class="overview-title" routerLink="/code/1">防抖与<span style="color: #ff5a05">节流</span></span>
-    </div>
-
-    <div class="detail">
-      <span class="detail-date">最后更新：2019-9-23</span>
-      <span class="tag detail-tag">JavaScript</span>
-      <span class="tag detail-tag">节流</span>
-    </div>
-  </div>
-
-
-  <div class="result-item result-item-file">
-    <div class="overview">
-      <nz-avatar nzText="太"></nz-avatar>
-      <span class="overview-author">太平洋一条鱼</span> /
-      <span class="overview-title" routerLink="/file/1">jquery-validate.js</span>
-    </div>
-
-    <div class="detail">
-      <span class="detail-date">上传时间：2019-9-23</span>
-      <span class="tag detail-tag">JavaScript</span>
-      <span class="tag detail-tag">jquery插件</span>
-    </div>
-  </div>
-
-
-  <div class="result-item result-item-user">
-    <div class="overview">
-      <nz-avatar nzText="太"></nz-avatar>
-      <span class="overview-author">太平洋一条鱼</span>
-    </div>
-
-    <div class="detail">
-      <span class="detail-date">贡献度：23</span>
-      <span class="detail-code-list">他/她的代码：8</span>
-      <span class="detail-file-list">他/她的文件：15</span>
-    </div>
-  </div>
+  <ng-container *ngFor="let item of searchResults">
+    <app-result-item [data]="item"></app-result-item>
+  </ng-container>
 </div>
-
 

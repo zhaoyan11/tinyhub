@@ -8,48 +8,36 @@
   </div>
 
   <form nz-form>
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
-      <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">代码说明</nz-form-label>
+    <nz-form-item [nzGutter]="nzGutterConfig">
+      <nz-form-label [nzSpan]="3" nzFor="summary" nzRequired style="text-align: left;">代码说明</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <input nz-input name="summary" id="summary" type="text">
       </nz-form-control>
     </nz-form-item >
 
 
-    <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <div nz-row [nzGutter]="nzGutterConfig">
       <div nz-col nzMd="12">
-        <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
-          <nz-form-label [nzSpan]="6" nzFor="email" nzRequired style="text-align: left;">所属分类</nz-form-label>
+        <nz-form-item [nzGutter]="nzGutterConfig">
+          <nz-form-label [nzSpan]="6" nzFor="category" nzRequired style="text-align: left;">所属分类</nz-form-label>
           <nz-form-control [nzSpan]="18">
-            <nz-select nzAllowClear nzPlaceHolder="选择分类">
-              <nz-option nzValue="jack" nzLabel="微信开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="ios开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="android开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="嵌入式开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="jquery插件"></nz-option>
-            </nz-select>
+            <app-code-category></app-code-category>
           </nz-form-control>
         </nz-form-item >
       </div>
 
       <div nz-col nzMd="12">
-        <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
-          <nz-form-label [nzSpan]="6" nzFor="email" nzRequired style="text-align: left">编程语言</nz-form-label>
+        <nz-form-item [nzGutter]="nzGutterConfig">
+          <nz-form-label [nzSpan]="6" nzFor="lang" nzRequired style="text-align: left">编程语言</nz-form-label>
           <nz-form-control [nzSpan]="18">
-            <nz-select nzAllowClear nzPlaceHolder="选择语言">
-              <nz-option nzValue="jack" nzLabel="微信开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="ios开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="android开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="嵌入式开发"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="jquery插件"></nz-option>
-            </nz-select>
+            <app-code-lang></app-code-lang>
           </nz-form-control>
         </nz-form-item >
       </div>
     </div>
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="" nzRequired style="text-align: left;">标签</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <app-editable-tag></app-editable-tag>
@@ -57,22 +45,27 @@
     </nz-form-item >
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">代码公开</nz-form-label>
       <nz-form-control [nzSpan]="21">
-        <nz-switch nzCheckedChildren="已公开" nzUnCheckedChildren="未公开"></nz-switch>
+        <nz-switch
+          [(ngModel)]="pubState"
+          name="pubState"
+          nzCheckedChildren="已公开"
+          nzUnCheckedChildren="未公开">
+        </nz-switch>
       </nz-form-control>
     </nz-form-item>
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-control [nzSpan]="21" [nzOffset]="3">
         <textarea rows="10" nz-input></textarea>
       </nz-form-control>
     </nz-form-item >
 
 
-    <nz-form-item [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-control [nzOffset]="3">
         <button type="button" nz-button nzType="primary">发布</button>
       </nz-form-control>
