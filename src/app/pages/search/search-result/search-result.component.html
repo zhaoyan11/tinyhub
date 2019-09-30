@@ -1,0 +1,41 @@
+<div class="width-limit">
+  <div class="search-result">
+    <nz-spin nzSimple [nzSize]="'large'" *ngIf="loading"></nz-spin>
+
+    <nz-empty
+      *ngIf="searchResults && searchResults.length === 0"
+      style="display: inline-block;"
+      nzNotFoundContent="很抱歉，没有找到相关的内容"
+    ></nz-empty>
+
+    <ng-container *ngIf="searchResults">
+      <div class="result-summary">为您找到相关结果约 {{searchResults.length}} 个</div>
+
+      <ng-container *ngFor="let item of searchResults;let i = index;">
+        <app-result-item *ngIf="i < 10" [data]="item"></app-result-item>
+      </ng-container>
+
+      <div class="pagination">
+        <nz-pagination
+          [nzPageIndex]="queryParams.page"
+          [nzPageSize]="pageSize"
+          [nzTotal]="searchResults.length"
+          [nzHideOnSinglePage]="true"
+          (nzPageIndexChange)="rs.refresh(queryParams, {page: $event})">
+        </nz-pagination>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="side-bar">
+    <p><b>big fan of those fruits</b></p>
+    <ul style="list-style-type: none;padding-left: 0">
+      <li><a href="">pineapple</a></li>
+      <li><a href="">longan</a></li>
+      <li><a href="">lychee</a></li>
+      <li><a href="">grape</a></li>
+    </ul>
+  </div>
+</div>
+
+

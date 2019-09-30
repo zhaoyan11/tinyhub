@@ -7,11 +7,11 @@
     发布代码片段
   </div>
 
-  <form nz-form>
+  <form nz-form (ngSubmit)="submit()">
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="summary" nzRequired style="text-align: left;">代码说明</nz-form-label>
       <nz-form-control [nzSpan]="21">
-        <input nz-input name="summary" id="summary" type="text">
+        <input nz-input [(ngModel)]="data.summary" name="summary" id="summary" type="text">
       </nz-form-control>
     </nz-form-item >
 
@@ -19,37 +19,35 @@
     <div nz-row [nzGutter]="nzGutterConfig">
       <div nz-col nzMd="12">
         <nz-form-item [nzGutter]="nzGutterConfig">
-          <nz-form-label [nzSpan]="6" nzFor="category" nzRequired style="text-align: left;">所属分类</nz-form-label>
+          <nz-form-label [nzSpan]="6" nzRequired style="text-align: left;">所属分类</nz-form-label>
           <nz-form-control [nzSpan]="18">
-            <app-code-category></app-code-category>
+            <app-code-category [(ngModel)]="data.category" name="lang" ngDefaultControl></app-code-category>
           </nz-form-control>
         </nz-form-item >
       </div>
 
       <div nz-col nzMd="12">
         <nz-form-item [nzGutter]="nzGutterConfig">
-          <nz-form-label [nzSpan]="6" nzFor="lang" nzRequired style="text-align: left">编程语言</nz-form-label>
+          <nz-form-label [nzSpan]="6" nzRequired style="text-align: left">编程语言</nz-form-label>
           <nz-form-control [nzSpan]="18">
-            <app-code-lang></app-code-lang>
+            <app-code-lang [(ngModel)]="data.lang" name="lang" ngDefaultControl></app-code-lang>
           </nz-form-control>
         </nz-form-item >
       </div>
     </div>
 
-
     <nz-form-item [nzGutter]="nzGutterConfig">
-      <nz-form-label [nzSpan]="3" nzFor="" nzRequired style="text-align: left;">标签</nz-form-label>
+      <nz-form-label [nzSpan]="3" nzRequired style="text-align: left;">标签</nz-form-label>
       <nz-form-control [nzSpan]="21">
-        <app-editable-tag></app-editable-tag>
+        <app-editable-tag [(ngModel)]="data.tags" name="tags" ngDefaultControl></app-editable-tag>
       </nz-form-control>
     </nz-form-item >
-
 
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="email" nzRequired style="text-align: left;">代码公开</nz-form-label>
       <nz-form-control [nzSpan]="21">
         <nz-switch
-          [(ngModel)]="pubState"
+          [(ngModel)]="data.pubState"
           name="pubState"
           nzCheckedChildren="已公开"
           nzUnCheckedChildren="未公开">
@@ -57,17 +55,15 @@
       </nz-form-control>
     </nz-form-item>
 
-
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-control [nzSpan]="21" [nzOffset]="3">
-        <textarea rows="10" nz-input></textarea>
+        <textarea rows="10" nz-input [(ngModel)]="data.codeText" name="codeText"></textarea>
       </nz-form-control>
     </nz-form-item >
 
-
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-control [nzOffset]="3">
-        <button type="button" nz-button nzType="primary">发布</button>
+        <button type="button" nz-button nzType="primary" (click)="submit()">发布</button>
       </nz-form-control>
     </nz-form-item>
   </form>

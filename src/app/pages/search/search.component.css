@@ -26,12 +26,3 @@
 .search-result-nav-item.active {
   border-bottom: 1px solid #ff5a05;
 }
-
-.search-result {
-  margin-top: 15px;
-}
-
-.result-summary {
-  margin: 0 0 25px 0;
-}
-

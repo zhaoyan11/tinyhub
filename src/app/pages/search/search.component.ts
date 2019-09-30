@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultType } from '../../shared/constants';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SearchResultItem } from './model';
-import { TempHttpService } from '../../shared/services/temp-http.service';
+import { RefreshService } from './services/refresh.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,34 +10,24 @@ import { TempHttpService } from '../../shared/services/temp-http.service';
 })
 export class SearchComponent implements OnInit {
   public ResultType = ResultType;
-  public queryParams: any = { type: this.ResultType[0].symbol, page: 1, keyWords: '' };
-  public resultCount = 0;
-  public searchResults: Array<SearchResultItem>;
+  public queryParams: any;
+
   constructor(
-    private router: Router,
     private activatedRoute: ActivatedRoute,
-    private tempHttp: TempHttpService
+    private rs: RefreshService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.activatedRoute.queryParams
       .subscribe(
         queryParams => {
-          this.getData(queryParams);
+          this.queryParams = Object.assign({
+            type: this.ResultType[0].symbol,
+            page: 1,
+            keyWords: ''
+          }, queryParams);
         }
       );
-  }
-
-  search(params?): void {
-    Object.assign(this.queryParams, params);
-    this.router.navigate(['search'], {queryParams: this.queryParams});
-  }
-
-  getData(params): void {
-    this.tempHttp.search(params).subscribe(res => {
-      this.searchResults = res;
-      this.resultCount = res.length;
-    });
   }
 
 }

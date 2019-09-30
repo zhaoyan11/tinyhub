@@ -1,4 +1,5 @@
 export interface SearchResultItem {
+  id: string | number;
   type: string;
   title: string;
   desc: string;

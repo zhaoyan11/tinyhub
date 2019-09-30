@@ -5,19 +5,23 @@
      nzAlign="middle"
      style="margin-top: 25px;margin-bottom: 15px;">
 
-  <div class="search-input" nz-col>
+  <div class="search-input">
     <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
       <input
         type="text"
         nz-input
         [(ngModel)]="queryParams.keyWords"
-        (keydown.enter)="search()"
+        (keydown.enter)="rs.refresh({type: queryParams.type, keyWords: queryParams.keyWords})"
         placeholder="请输入你要搜索的关键词..."
       />
     </nz-input-group>
     <ng-template #suffixIconButton>
-      <button nz-button nzType="primary" nzSearch nzSize="large" (click)="search()">
-        <i nz-icon nzType="search"></i>
+      <button
+        nz-button
+        nzType="primary"
+        nzSearch nzSize="large"
+        (click)="rs.refresh({type: queryParams.type, keyWords: queryParams.keyWords})"
+      ><i nz-icon nzType="search"></i>
       </button>
     </ng-template>
   </div>
@@ -29,22 +33,16 @@
   </span>
 </div>
 
-
 <div class="search-result-nav">
   <div class="width-limit">
     <span class="search-result-nav-item"
           *ngFor="let type of ResultType"
           [ngClass]="{'active': queryParams.type === type.symbol}"
-          (click)="search({type: type.symbol})">
+          (click)="rs.refresh({type: type.symbol, keyWords: queryParams.keyWords})">
       {{type.label}}
     </span>
   </div>
 </div>
 
-<div class="width-limit search-result">
-  <div class="result-summary">为您找到相关结果约 {{resultCount}} 个</div>
-  <ng-container *ngFor="let item of searchResults">
-    <app-result-item [data]="item"></app-result-item>
-  </ng-container>
-</div>
+<app-search-result></app-search-result>
 

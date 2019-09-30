@@ -1,0 +1,57 @@
+.result-item {
+  margin: 20px 0;
+}
+
+
+.result-item .overview {
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  color: #1075d4;
+}
+
+
+.overview nz-avatar {
+  margin-right: 10px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+
+.overview-title {
+  vertical-align: middle;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.detail {
+  margin: 0 15px 0 0;
+}
+
+.detail-value {
+  padding-left: 6px;
+  vertical-align: -1px;
+}
+
+
+.result-item .tag {
+  margin-right: 8px;
+  border-radius: 2px;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #6a6a6a;
+  background-color: #efefff;
+}
+
+
+.detail-code-list,
+.detail-file-list {
+  margin: 0 10px;
+  color: #1075d4;
+}
+
+
+.detail-code-list:hover,
+.detail-file-list:hover {
+  text-decoration: underline;
+}

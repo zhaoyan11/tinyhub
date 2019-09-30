@@ -1,0 +1,7 @@
+.back {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 18px;
+  z-index: 100;
+}

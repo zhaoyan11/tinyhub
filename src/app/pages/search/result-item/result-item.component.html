@@ -1,0 +1,44 @@
+<div class="result-item">
+  <div class="overview">
+    <i
+      nz-tooltip
+      [nzTooltipTitle]="data.type | searchResultType"
+      nz-icon
+      [nzType]="data.type"
+      nzTheme="twotone"
+      style="margin-right: 8px;
+      vertical-align: middle">
+    </i>
+
+    <span class="overview-title" routerLink="/{{data.type}}/{{data.id}}">{{data.title}}</span>
+  </div>
+
+  <div class="detail">
+    <div class="desc">{{data.desc}}</div>
+
+    <span class="detail" nz-tooltip nzTooltipTitle="上次更新">
+      <i nz-icon nzType="sync" nzTheme="outline"></i>
+      <span class="detail-value">{{data.date | date: 'yyyy/MM/dd HH: mm: ss'}}</span>
+    </span>
+
+
+    <span class="detail" nz-tooltip nzTooltipTitle="分享人">
+      <i nz-icon nzType="user" nzTheme="outline"></i>
+      <span class="detail-value">{{data.contributor}}</span>
+    </span>
+
+
+    <span class="detail" nz-tooltip nzTooltipTitle="点赞数">
+      <i nz-icon nzType="like" theme="outline"></i>
+      <span class="detail-value">{{data.likes}}</span>
+    </span>
+
+
+    <span class="detail" nz-tooltip nzTooltipTitle="下载次数">
+      <i nz-icon nzType="download" nzTheme="outline"></i>
+      <span class="detail-value">{{data.referenceCount}}</span>
+    </span>
+
+    <span class="tag detail-tag" *ngFor="let tag of data.tags">{{tag}}</span>
+  </div>
+</div>

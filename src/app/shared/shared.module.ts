@@ -3,23 +3,22 @@ import { CommonModule } from '@angular/common';
 import { EditableTagComponent } from './components/editable-tag/editable-tag.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighlightComponent } from './components/highlight/highlight.component';
-import { BgColorRandomDirective } from './derevtives/bg-color-random.directive';
 import { SearchResultTypePipe } from './pipes/search-result-type.pipe';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-
+import { NavBackComponent } from './components/nav-back/nav-back.component';
 
 @NgModule({
   declarations: [
     EditableTagComponent,
     HighlightComponent,
-    BgColorRandomDirective,
-    SearchResultTypePipe
+    SearchResultTypePipe,
+    NavBackComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgZorroAntdModule,
+    NgZorroAntdModule
   ],
   exports: [
     FormsModule,
@@ -28,7 +27,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     EditableTagComponent,
     HighlightComponent,
     SearchResultTypePipe,
-    BgColorRandomDirective
+    NavBackComponent
   ]
 })
 
