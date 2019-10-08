@@ -3,3 +3,17 @@ export const ResultType = [
   { symbol: 'file', label: '文件' },
   { symbol: 'code', label: '代码' }
 ];
+
+export const colors = [
+  'magenta',
+  'red',
+  'volcano',
+  'orange',
+  'gold',
+  'lime',
+  'green',
+  'cyan',
+  'blue',
+  'geekblue',
+  'purple'
+]

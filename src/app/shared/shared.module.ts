@@ -6,13 +6,15 @@ import { HighlightComponent } from './components/highlight/highlight.component';
 import { SearchResultTypePipe } from './pipes/search-result-type.pipe';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NavBackComponent } from './components/nav-back/nav-back.component';
+import { ColorfulTagsComponent } from './components/colorful-tags/colorful-tags.component';
 
 @NgModule({
   declarations: [
     EditableTagComponent,
     HighlightComponent,
     SearchResultTypePipe,
-    NavBackComponent
+    NavBackComponent,
+    ColorfulTagsComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { NavBackComponent } from './components/nav-back/nav-back.component';
     EditableTagComponent,
     HighlightComponent,
     SearchResultTypePipe,
-    NavBackComponent
+    NavBackComponent,
+    ColorfulTagsComponent
   ]
 })
 

@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-nav-back',
   templateUrl: './nav-back.component.html',
   styleUrls: ['./nav-back.component.css']
 })
-export class NavBackComponent implements OnInit {
+export class NavBackComponent {
 
-  constructor(private router: Router) { }
+  constructor(private location: Location) { }
 
-  ngOnInit() {
-  }
 
   back() {
-    this.router.navigate(['search']);
+    this.location.back();
   }
 }

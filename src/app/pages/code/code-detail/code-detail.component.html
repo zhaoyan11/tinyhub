@@ -1,44 +1,49 @@
-<div class="code-detail-header">
-  <app-nav-back></app-nav-back>
+<app-nav-back></app-nav-back>
 
-  <div class="mini-width-limit">
-    <span class="code-info title">孔夫子的妾 / 防抖与节流</span><br>
-    <span class="code-info lang">语言：<a>javascript</a></span>
-    <span class="code-info category">分类：<a>web开发</a></span><br>
-    <span class="code-info update">最后更新：2019-9-24 17:17</span>
+<div class="mini-width-limit">
+  <div class="code">
+    <nz-divider nzOrientation="right" nzText="孔夫子的妾 / 防抖与节流"></nz-divider>
+    <div class="info">
+      <p>简介：在前端开发过程中，防抖与节流是一个很重要的细节</p>
+      <p>标签：
+        <app-colorful-tags [model]="['js', '优化']"></app-colorful-tags>
+      </p>
+      <p>
+        <span class="info-item">语言：javascript</span>
+        <span class="info-item">分类：web开发</span>
+      </p>
+      <p>最后更新：2019-9-24 17:17</p>
+    </div>
+
+    <app-highlight></app-highlight>
+  </div>
+
+  <div class="comments">
+    <p style="margin: 50px 0 10px; border-bottom: 1px solid #ccc">评论区：</p>
+    <nz-list *ngIf="data.length" [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+      <ng-template #item let-item>
+        <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.displayTime">
+          <nz-avatar nz-comment-avatar [nzText]="item.avatar"></nz-avatar>
+          <nz-comment-content>
+            <p>{{ item.content }}</p>
+          </nz-comment-content>
+        </nz-comment>
+      </ng-template>
+    </nz-list>
+    <nz-comment>
+      <nz-avatar nz-comment-avatar [nzText]="user.avatar"></nz-avatar>
+      <nz-comment-content>
+        <nz-form-item>
+          <textarea [(ngModel)]="inputValue" nz-input rows="4"></textarea>
+        </nz-form-item>
+        <nz-form-item>
+          <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputValue" (click)="handleSubmit()">
+            评论
+          </button>
+        </nz-form-item>
+      </nz-comment-content>
+    </nz-comment>
   </div>
 </div>
 
 
-<div class="code-text mini-width-limit">
-  <div class="title">common.js</div>
-  <app-highlight></app-highlight>
-</div>
-
-
-<div class="mini-width-limit comments">
-  <p style="margin: 50px 0 10px; border-bottom: 1px solid #ccc">评论区：</p>
-  <nz-list *ngIf="data.length" [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
-    <ng-template #item let-item>
-      <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.displayTime">
-        <nz-avatar nz-comment-avatar [nzText]="item.avatar"></nz-avatar>
-        <nz-comment-content>
-          <p>{{ item.content }}</p>
-        </nz-comment-content>
-      </nz-comment>
-    </ng-template>
-  </nz-list>
-  <nz-comment>
-    <nz-avatar nz-comment-avatar [nzText]="user.avatar"></nz-avatar>
-    <nz-comment-content>
-      <nz-form-item>
-        <textarea [(ngModel)]="inputValue" nz-input rows="4"></textarea>
-      </nz-form-item>
-      <nz-form-item>
-        <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputValue" (click)="handleSubmit()">
-          评论
-        </button>
-      </nz-form-item>
-    </nz-comment-content>
-  </nz-comment>
-</div>

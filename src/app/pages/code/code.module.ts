@@ -7,10 +7,11 @@ import { SharedModule } from '../../shared/shared.module';
 import { CodeDetailComponent } from './code-detail/code-detail.component';
 import { CodeLangComponent } from './code-lang/code-lang.component';
 import { CodeCategoryComponent } from './code-category/code-category.component';
+import { CodeEditorComponent } from './code-editor/code-editor.component';
 
 
 @NgModule({
-  declarations: [CodeComponent, CodeDetailComponent, CodeCategoryComponent, CodeLangComponent],
+  declarations: [CodeComponent, CodeDetailComponent, CodeCategoryComponent, CodeLangComponent, CodeEditorComponent],
   imports: [
     CommonModule,
     SharedModule,

@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd';
 import hljs from 'highlight.js';
 
 @Component({
@@ -6,9 +7,9 @@ import hljs from 'highlight.js';
   templateUrl: './highlight.component.html',
   styleUrls: ['./highlight.component.css']
 })
-export class HighlightComponent implements OnInit, AfterViewInit {
+export class HighlightComponent implements AfterViewInit {
   @ViewChild('codeText', {static: false}) codeText: ElementRef;
-  constructor() { }
+  constructor(private msg: NzMessageService) { }
 
   public code = `
     const x = 5;
@@ -16,8 +17,16 @@ export class HighlightComponent implements OnInit, AfterViewInit {
       console.log(56)
     }`;
 
-  ngOnInit() {
-
+  copy() {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(this.codeText.nativeElement);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    setTimeout( () => {
+      this.msg.info('已复制到剪切板');
+    }, 150);
   }
 
   ngAfterViewInit(): void {

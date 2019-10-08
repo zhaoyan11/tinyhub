@@ -1,0 +1,29 @@
+<ng-container>
+  <nz-tag
+    *ngFor="let tag of tags"
+    [nzMode]="addAble? 'closeable': 'default'"
+    [nzColor]="tag.color"
+    (nzAfterClose)="tagClosedHandle(tag)"
+  >{{tag.label}}
+  </nz-tag>
+
+  <input
+    #inputElement
+    nz-input
+    *ngIf="inputVisible"
+    [(ngModel)]="inputValue"
+    (blur)="inputConfirm()"
+    (keydown.enter)="inputConfirm()"
+    [ngModelOptions]="{standalone: true}"
+    nzSize="small"
+    type="text"
+    style="width: 80px;"
+  />
+  <nz-tag
+    class="editable-tag"
+    *ngIf="addAble && !inputVisible && tags.length < maxTagNum"
+    nzNoAnimation
+    (click)="showInput()">新建+
+  </nz-tag>
+
+</ng-container>

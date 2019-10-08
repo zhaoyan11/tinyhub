@@ -15,6 +15,4 @@ export class CodeCategoryComponent {
     this.ngModel = e;
     this.ngModelChange.emit(e);
   }
-
-
 }

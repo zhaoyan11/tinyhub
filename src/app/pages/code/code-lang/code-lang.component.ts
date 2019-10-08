@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-code-lang',
@@ -6,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./code-lang.component.css']
 })
 export class CodeLangComponent implements OnInit {
+  @Input() ngModel: string | number;
+  @Output() ngModelChange: EventEmitter<string | number> = new EventEmitter<string | number>();
+
   constructor() { }
 
-  ngOnInit() {
+  modelChange(e) {
+    this.ngModel = e;
+    this.ngModelChange.emit(e);
+  }
+
+  ngOnInit(): void {
   }
 
 }

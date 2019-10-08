@@ -1,5 +1,9 @@
-<div class="code-text" #codeText>
+<div style="position: relative">
+  <span class="operation" (click)="copy()">复制</span>
+  <div class="code-text" #codeText>
   <pre>
     {{code}}
   </pre>
+  </div>
+
 </div>

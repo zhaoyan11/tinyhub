@@ -3,7 +3,6 @@
     <a routerLink="/search" style="float: left">
       <i nz-icon nzType="arrow-left" nzTheme="outline"></i>
     </a>
-
     发布代码片段
   </div>
 
@@ -14,7 +13,6 @@
         <input nz-input [(ngModel)]="data.summary" name="summary" id="summary" type="text">
       </nz-form-control>
     </nz-form-item >
-
 
     <div nz-row [nzGutter]="nzGutterConfig">
       <div nz-col nzMd="12">
@@ -39,7 +37,7 @@
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzRequired style="text-align: left;">标签</nz-form-label>
       <nz-form-control [nzSpan]="21">
-        <app-editable-tag [(ngModel)]="data.tags" name="tags" ngDefaultControl></app-editable-tag>
+        <app-colorful-tags [(model)]="data.tags" [addAble]="true" name="tags" ngDefaultControl></app-colorful-tags>
       </nz-form-control>
     </nz-form-item >
 
@@ -57,7 +55,8 @@
 
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-control [nzSpan]="21" [nzOffset]="3">
-        <textarea rows="10" nz-input [(ngModel)]="data.codeText" name="codeText"></textarea>
+        <!--<textarea rows="10" nz-input [(ngModel)]="data.codeText" name="codeText"></textarea>-->
+        <app-code-editor [(model)]="data.codeText"></app-code-editor>
       </nz-form-control>
     </nz-form-item >
 
