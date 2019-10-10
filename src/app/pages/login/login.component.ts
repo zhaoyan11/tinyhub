@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { TempHttpService } from '../../shared/services/temp-http.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private tempHttp: TempHttpService,
+    private location: Location
   ) {}
 
   submitForm(): void {
@@ -20,7 +22,14 @@ export class LoginComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-    // this.router.navigateByUrl('search');
+
+    this.tempHttp.login({});
+
+    localStorage.setItem('userId', '1');
+    localStorage.setItem('userName', '孔夫子的妾');
+    localStorage.setItem('avatar', '');
+
+    this.location.back();
   }
 
 

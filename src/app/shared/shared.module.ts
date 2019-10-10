@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditableTagComponent } from './components/editable-tag/editable-tag.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HighlightComponent } from './components/highlight/highlight.component';
 import { SearchResultTypePipe } from './pipes/search-result-type.pipe';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NavBackComponent } from './components/nav-back/nav-back.component';
 import { ColorfulTagsComponent } from './components/colorful-tags/colorful-tags.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { DistanceInCNPipe } from './pipes/distance-in-cn.pipe';
 
 @NgModule({
   declarations: [
-    EditableTagComponent,
     HighlightComponent,
     SearchResultTypePipe,
     NavBackComponent,
-    ColorfulTagsComponent
+    ColorfulTagsComponent,
+    CommentsComponent,
+    DistanceInCNPipe
   ],
   imports: [
     CommonModule,
@@ -26,11 +28,12 @@ import { ColorfulTagsComponent } from './components/colorful-tags/colorful-tags.
     FormsModule,
     ReactiveFormsModule,
     NgZorroAntdModule,
-    EditableTagComponent,
     HighlightComponent,
     SearchResultTypePipe,
     NavBackComponent,
-    ColorfulTagsComponent
+    ColorfulTagsComponent,
+    CommentsComponent,
+    DistanceInCNPipe
   ]
 })
 

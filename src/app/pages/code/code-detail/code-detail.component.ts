@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { distanceInWords } from 'date-fns';
+import { TempHttpService } from '../../../shared/services/temp-http.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-code-detail',
@@ -7,40 +8,17 @@ import { distanceInWords } from 'date-fns';
   styleUrls: ['./code-detail.component.css']
 })
 export class CodeDetailComponent implements OnInit {
-  data: Array<any> = [
-    {author: '曾参', displayTime: new Date(), avatar: '曾', content: '还是师娘疼我啊'}
-  ];
-  submitting = false;
-  user = {
-    author: 'Han Solo',
-    avatar: 'han'
-  };
-  inputValue = '';
-
-  handleSubmit(): void {
-    this.submitting = true;
-    const content = this.inputValue;
-    this.inputValue = '';
-    setTimeout(() => {
-      this.submitting = false;
-      this.data = [
-        ...this.data,
-        {
-          ...this.user,
-          content,
-          datetime: new Date(),
-          displayTime: distanceInWords(new Date(), new Date())
-        }
-      ].map(e => {
-        return {
-          ...e,
-          displayTime: distanceInWords(new Date(), e.datetime)
-        };
-      });
-    }, 800);
-  }
+  resData: any;
+  constructor(
+    private tempHttp: TempHttpService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    const id = this.route.snapshot.params.id;
+    this.tempHttp.getCode(id).subscribe( res => {
+      this.resData = res;
+    });
   }
 
 }

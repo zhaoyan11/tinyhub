@@ -1,0 +1,30 @@
+<div class="comments">
+  <p style="margin: 50px 0 10px; border-bottom: 1px solid #ccc">评论区：</p>
+  <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+    <ng-template #item let-item>
+      <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.datetime | distanceInCN">
+        <nz-avatar
+          nz-comment-avatar
+          [nzText]="item.avatar || (item.author[0] | uppercase)"
+        ></nz-avatar>
+        <nz-comment-content>
+          <p>{{ item.content }}</p>
+        </nz-comment-content>
+      </nz-comment>
+    </ng-template>
+  </nz-list>
+
+  <nz-comment>
+    <nz-avatar nz-comment-avatar [nzIcon]="user.avatar? '': 'user'" [nzText]="user.avatar"></nz-avatar>
+    <nz-comment-content>
+      <nz-form-item>
+        <textarea [(ngModel)]="inputValue" nz-input rows="4"></textarea>
+      </nz-form-item>
+      <nz-form-item>
+        <button nz-button nzType="primary" [nzLoading]="submitting" [disabled]="!inputValue" (click)="handleSubmit()">
+          评论
+        </button>
+      </nz-form-item>
+    </nz-comment-content>
+  </nz-comment>
+</div>

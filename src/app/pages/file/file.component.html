@@ -25,7 +25,7 @@
     <nz-form-item [nzGutter]="nzGutterConfig">
       <nz-form-label [nzSpan]="3" nzFor="" nzRequired style="text-align: left;">标签</nz-form-label>
       <nz-form-control [nzSpan]="21">
-        <app-editable-tag></app-editable-tag>
+        <app-colorful-tags [(model)]="tags" [addAble]="true"></app-colorful-tags>
       </nz-form-control>
     </nz-form-item >
 
