@@ -21,7 +21,7 @@
     "@angular/router": "~8.2.5",
     "codemirror": "^5.49.0",
     "highlight.js": "^9.15.10",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-zorro-antd": "^8.3.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
